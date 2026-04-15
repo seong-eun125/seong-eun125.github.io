@@ -17,7 +17,7 @@
             background-color: #f4f7f6;
             color: #1d1d1f;
             min-height: 100vh;
-            padding: 60px 20px;
+            /* padding: 60px 20px; */ /* 제거: 전체 화면 레이아웃을 위해 */
             position: relative;
             overflow-x: hidden;
         }
@@ -47,13 +47,46 @@
             flex-direction: column;
             gap: 35px;
             z-index: 1;
+            padding: 60px 20px; /* 컨테이너 내부로 패딩 이동 */
         }
 
-        /* 사용자 맞춤형 리퀴드 글래스 카드 */
-        .glass-card {
+        /* 소개 (Hero) 섹션: 전체 화면 */
+        .hero-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1); /* 더 투명하게 */
+            backdrop-filter: blur(5px) saturate(140%);
+            -webkit-backdrop-filter: blur(5px) saturate(140%);
+        }
+
+        .hero-card {
             /* 1. 투명도 0.25 적용 */
             background: rgba(255, 255, 255, 0.25); 
+            border-radius: 24px;
+            padding: 45px;
+            text-align: center;
             
+            /* 3. 투명도와 블러에 맞춘 적절한 그림자 세기 조절 */
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.1), 
+                inset 0 4px 10px rgba(255, 255, 255, 0.5);
+            
+            animation: floatHero 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatHero {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* 나머지 카드 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
             padding: 45px;
             
@@ -66,13 +99,10 @@
             border-right: 1px solid rgba(255, 255, 255, 0.3);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             
-            /* 3. 투명도와 블러에 맞춘 적절한 그림자 세기 조절 */
-            /* 외부 그림자는 가볍고 선명하게, 내부 반사는 부드럽게 */
             box-shadow: 
                 0 15px 35px rgba(0, 0, 0, 0.08), 
                 inset 0 4px 10px rgba(255, 255, 255, 0.4);
             
-            /* 떠다니는 애니메이션도 조금 더 속도감 있게 */
             animation: floatCard 4s ease-in-out infinite alternate;
         }
 
@@ -153,6 +183,13 @@
         }
 
         /* 타이포그래피 */
+        .hero-name { font-size: 4rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero-title { font-size: 2rem; font-weight: 600; color: #3b82f6; margin-bottom: 30px; }
+        .hero-contact { font-size: 1.1rem; color: #64748b; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .hero-contact a { color: inherit; text-decoration: none; }
+        .hero-contact a:hover { color: #3b82f6; text-decoration: underline; }
+        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #64748b;}
+
         h1 { font-size: 2.8rem; font-weight: 700; color: #0f172a; margin-bottom: 5px; letter-spacing: -1px; }
         h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
         h3 { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 5px; }
@@ -177,15 +214,26 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 
+    <section class="hero-section">
+        <div class="hero-card">
+            <h1 class="hero-name">임성은</h1>
+            <div class="hero-title">개발자</div>
+            <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다.</p>
+            <div class="hero-contact">
+                <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"></path></svg>
+                <a href="mailto:juntak46059826@gmail.com">juntak46059826@gmail.com</a>
+            </div>
+            <div class="hero-contact">
+                <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg>
+                <a href="https://github.com/Juntak0131" target="_blank">github.com/Juntak0131</a>
+            </div>
+            <p>복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
+            <a href="#github" class="btn-jelly">GitHub 방문하기</a>
+        </header>
+    </section>
+
     <div class="container">
         
-        <header class="glass-card">
-            <h1>홍길동</h1>
-            <div class="role">Backend & Full-Stack Developer</div>
-            <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다. 복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
-            <a href="https://github.com/" target="_blank" class="btn-jelly">GitHub 방문하기</a>
-        </header>
-
         <section class="glass-card">
             <h2>기술 스택</h2>
             <div class="badge-container">
