@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>경쾌한 리퀴드 글래스 이력서</title>
+    <title>민초 코어 리퀴드 글래스 이력서</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,27 +13,29 @@
             font-family: 'Pretendard', sans-serif;
         }
 
+        /* 베이스: 아주 연한 민트 크림색 */
         body {
-            background-color: #f4f7f6;
-            color: #1d1d1f;
+            background-color: #F2FBF7; 
+            color: #4A332A; /* 기본 텍스트는 부드러운 코코아 브라운 */
             min-height: 100vh;
-            /* padding: 60px 20px; */ /* 제거: 전체 화면 레이아웃을 위해 */
             position: relative;
             overflow-x: hidden;
         }
 
-        /* 오로라 배경 (애니메이션 속도 증가 반영) */
+        /* 민트 & 초코 오로라 배경 */
         .orb {
             position: fixed;
             border-radius: 50%;
             filter: blur(70px);
             z-index: -1;
-            /* 기존 10s에서 5s로 속도 상향 */
             animation: floatOrb 5s ease-in-out infinite alternate; 
         }
-        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.45); top: -100px; left: -100px; }
-        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.35); bottom: -150px; right: -100px; animation-delay: -2.5s; }
-        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.45); top: 40%; left: 30%; animation-duration: 7s; }
+        /* 상쾌한 민트색 */
+        .orb-1 { width: 500px; height: 500px; background: rgba(46, 196, 150, 0.4); top: -100px; left: -100px; }
+        /* 진한 다크 초콜릿색 */
+        .orb-2 { width: 600px; height: 600px; background: rgba(94, 58, 43, 0.3); bottom: -150px; right: -100px; animation-delay: -2.5s; }
+        /* 부드러운 우유 민트색 */
+        .orb-3 { width: 400px; height: 400px; background: rgba(168, 230, 207, 0.5); top: 40%; left: 30%; animation-duration: 7s; }
 
         @keyframes floatOrb {
             0% { transform: translate(0, 0) scale(1); }
@@ -47,7 +49,7 @@
             flex-direction: column;
             gap: 35px;
             z-index: 1;
-            padding: 60px 20px; /* 컨테이너 내부로 패딩 이동 */
+            padding: 60px 20px; 
         }
 
         /* 소개 (Hero) 섹션: 전체 화면 */
@@ -59,23 +61,19 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.1); /* 더 투명하게 */
+            background: rgba(255, 255, 255, 0.1); 
             backdrop-filter: blur(5px) saturate(140%);
             -webkit-backdrop-filter: blur(5px) saturate(140%);
         }
 
         .hero-card {
-            /* 1. 투명도 0.25 적용 */
             background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
             padding: 45px;
             text-align: center;
-            
-            /* 3. 투명도와 블러에 맞춘 적절한 그림자 세기 조절 */
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.1), 
+                0 25px 50px rgba(94, 58, 43, 0.08), /* 그림자도 살짝 초코빛으로 */
                 inset 0 4px 10px rgba(255, 255, 255, 0.5);
-            
             animation: floatHero 6s ease-in-out infinite alternate;
         }
 
@@ -84,13 +82,11 @@
             100% { transform: translateY(-10px); }
         }
 
-        /* 나머지 카드 */
+        /* 나머지 글래스 카드 */
         .glass-card {
             background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
             padding: 45px;
-            
-            /* 2. 블러 강도 5 적용 */
             backdrop-filter: blur(5px) saturate(140%); 
             -webkit-backdrop-filter: blur(5px) saturate(140%);
             
@@ -100,9 +96,8 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.08), 
+                0 15px 35px rgba(94, 58, 43, 0.06), 
                 inset 0 4px 10px rgba(255, 255, 255, 0.4);
-            
             animation: floatCard 4s ease-in-out infinite alternate;
         }
 
@@ -117,12 +112,12 @@
 
         /* 내부 움푹 파인 요소 */
         .glass-inset {
-            background: rgba(0, 0, 0, 0.03);
+            background: rgba(94, 58, 43, 0.03); /* 초코 한 방울 추가 */
             border-radius: 16px;
             padding: 25px;
             margin-top: 20px;
             box-shadow: 
-                inset 0 4px 8px rgba(0, 0, 0, 0.05),
+                inset 0 4px 8px rgba(94, 58, 43, 0.05),
                 0 2px 4px rgba(255, 255, 255, 0.6);
             border-bottom: 1px solid rgba(255, 255, 255, 0.7);
         }
@@ -136,30 +131,31 @@
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #475569;
+            color: #4A332A; /* 코코아색 텍스트 */
             backdrop-filter: blur(5px);
             border-top: 1px solid rgba(255, 255, 255, 0.9);
             border-left: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 10px rgba(94, 58, 43, 0.04);
             transition: all 0.3s ease;
             cursor: default;
         }
 
         .badge:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 15px rgba(94, 58, 43, 0.08);
+            color: #1A936F; /* 호버 시 민트색으로 변화 */
         }
 
-        /* 젤리 버튼 */
+        /* 민트 시럽 젤리 버튼 */
         .btn-jelly {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.9), rgba(0, 242, 254, 0.9));
+            background: linear-gradient(135deg, rgba(62, 180, 137, 0.9), rgba(26, 147, 111, 0.9)); /* 민트 그라데이션 */
             color: white;
             text-decoration: none;
             padding: 14px 32px;
@@ -170,7 +166,7 @@
             backdrop-filter: blur(5px);
             border-top: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 
-                0 10px 20px rgba(0, 242, 254, 0.25),
+                0 10px 20px rgba(26, 147, 111, 0.25),
                 inset 0 -3px 5px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -178,32 +174,32 @@
         .btn-jelly:hover {
             transform: translateY(-3px);
             box-shadow: 
-                0 15px 25px rgba(0, 242, 254, 0.35),
+                0 15px 25px rgba(26, 147, 111, 0.35),
                 inset 0 -3px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* 타이포그래피 */
-        .hero-name { font-size: 4rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; letter-spacing: -2px; }
-        .hero-title { font-size: 2rem; font-weight: 600; color: #3b82f6; margin-bottom: 30px; }
-        .hero-contact { font-size: 1.1rem; color: #64748b; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        /* 타이포그래피 (다크 초코 & 민트) */
+        .hero-name { font-size: 4rem; font-weight: 700; color: #3D2314; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero-title { font-size: 2rem; font-weight: 600; color: #1A936F; margin-bottom: 30px; } /* 포인트 민트 */
+        .hero-contact { font-size: 1.1rem; color: #6E4B39; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
         .hero-contact a { color: inherit; text-decoration: none; }
-        .hero-contact a:hover { color: #3b82f6; text-decoration: underline; }
-        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #64748b;}
+        .hero-contact a:hover { color: #1A936F; text-decoration: underline; }
+        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #6E4B39;}
 
-        h1 { font-size: 2.8rem; font-weight: 700; color: #0f172a; margin-bottom: 5px; letter-spacing: -1px; }
-        h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
-        h3 { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 5px; }
-        p { font-size: 1.05rem; line-height: 1.7; color: #475569; }
+        h1 { font-size: 2.8rem; font-weight: 700; color: #3D2314; margin-bottom: 5px; letter-spacing: -1px; }
+        h2 { font-size: 1.5rem; font-weight: 700; color: #4A2E1B; margin-bottom: 5px; }
+        h3 { font-size: 1.2rem; font-weight: 600; color: #5C4033; margin-bottom: 5px; }
+        p { font-size: 1.05rem; line-height: 1.7; color: #6E4B39; }
         ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #475569; }
+        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #6E4B39; }
         
-        .role { font-size: 1.2rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
-        .period { font-size: 0.9rem; color: #94a3b8; font-weight: 500; display: block; margin-bottom: 12px; }
+        .role { font-size: 1.2rem; font-weight: 600; color: #1A936F; margin-bottom: 20px; } /* 포인트 민트 */
+        .period { font-size: 0.9rem; color: #A68A7E; font-weight: 500; display: block; margin-bottom: 12px; }
 
         hr {
             border: none;
             height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(94, 58, 43, 0.15) 50%, rgba(255,255,255,0) 100%);
             margin: 25px 0;
         }
     </style>
@@ -216,7 +212,7 @@
 
     <section class="hero-section">
         <div class="hero-card">
-            <h1 class="hero-name">임성은</h1>
+            <h1 class="hero-name">한준탁</h1>
             <div class="hero-title">개발자</div>
             <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다.</p>
             <div class="hero-contact">
@@ -229,7 +225,7 @@
             </div>
             <p>복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
             <a href="#github" class="btn-jelly">GitHub 방문하기</a>
-        </header>
+        </div>
     </section>
 
     <div class="container">
