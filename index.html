@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 | 풀스택 개발자</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            /* 글래스모피즘이 돋보이는 애니메이션 그라데이션 배경 */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 컨테이너 및 레이아웃 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* 글래스모피즘 카드 핵심 CSS */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15); /* 반투명 흰색 배경 */
+            backdrop-filter: blur(12px); /* 배경 블러 효과 */
+            -webkit-backdrop-filter: blur(12px); /* Safari 지원 */
+            border-radius: 20px; /* 둥근 모서리 */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* 얇고 투명한 테두리 */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* 부드러운 그림자 */
+            padding: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px); /* 마우스 오버 시 살짝 떠오르는 효과 */
+        }
+
+        /* 타이포그래피 */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #f0f0f0;
+        }
+
+        p, li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* 뱃지 (기술 스택용) */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* 링크 스타일 */
+        a {
+            color: #a8ff78;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #78ffd6;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="glass-card">
+            <h1>홍길동 (Resume)</h1>
+            <p><strong>Email:</strong> developer@example.com | <strong>GitHub:</strong> <a href="https://github.com/" target="_blank">github.com/username</a></p>
+            <br>
+            <h2>소개</h2>
+            <p>안녕하세요. 데이터 파이프라인 구축과 리소스 모니터링 시스템 개발에 강점을 가진 풀스택 개발자입니다. 복잡한 시스템의 상태를 실시간으로 파악하고 제어하는 아키텍처 설계에 관심이 많으며, 비동기(Async) 프로그래밍을 활용한 성능 최적화 경험이 있습니다.</p>
+        </header>
+
+        <section class="glass-card">
+            <h2>기술 스택</h2>
+            <div class="badge-container">
+                <span class="badge">Python</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">C#</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">MariaDB</span>
+                <span class="badge">HTML/CSS</span>
+                <span class="badge">Git / GitHub</span>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h2>포트폴리오</h2>
+            
+            <h3>UPM (Universal PC Master) - Global Server</h3>
+            <p><strong>기간:</strong> 2024.01 - 2024.04</p>
+            <ul>
+                <li>PC 모니터링을 위한 중앙 제어실(Control Room) 개념의 데스크톱 애플리케이션 개발</li>
+                <li>C# 에이전트를 통해 CPU 사용량, RAM 점유율, GPU 온도 등 하드웨어 텔레메트리 데이터 실시간 수집</li>
+                <li>Python 및 FastAPI를 활용한 백엔드 서버 구축하여 안전한 데이터 파이프라인 형성</li>
+                <li>MySQL/MariaDB를 활용한 시스템 상태 데이터 영구 저장 및 관리 (데이터베이스 권한 최적화 적용)</li>
+            </ul>
+        </section>
+
+        <section class="glass-card">
+            <h2>경력 및 학력</h2>
+            
+            <h3>ㅇㅇ대학교 컴퓨터공학과</h3>
+            <p><strong>기간:</strong> 2018.03 - 2022.02</p>
+            <ul>
+                <li>자료구조, 알고리즘, 운영체제 등 컴퓨터 공학 기초 이수</li>
+                <li>졸업 프로젝트: 분산 환경에서의 데이터 처리 아키텍처 연구</li>
+            </ul>
+        </section>
+
+        <section class="glass-card">
+            <h2>수상 및 자격</h2>
+            <ul>
+                <li><strong>정보처리기사</strong> - 한국산업인력공단 (2022.05)</li>
+                <li><strong>교내 해커톤 대상</strong> - ㅇㅇ대학교 (2021.11)</li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
