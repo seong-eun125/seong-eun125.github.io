@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>초투명 리퀴드 글래스 이력서</title>
+    <title>경쾌한 리퀴드 글래스 이력서</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 기본 설정 */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +13,6 @@
             font-family: 'Pretendard', sans-serif;
         }
 
-        /* 화려하지만 부드러운 애니메이션 배경 (유리 효과를 극대화하는 핵심) */
         body {
             background-color: #f4f7f6;
             color: #1d1d1f;
@@ -24,21 +22,22 @@
             overflow-x: hidden;
         }
 
-        /* 움직이는 오로라 빛 번짐 (이게 있어야 유리가 예뻐 보입니다) */
+        /* 오로라 배경 (애니메이션 속도 증가 반영) */
         .orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(70px);
             z-index: -1;
-            animation: floatOrb 10s ease-in-out infinite alternate;
+            /* 기존 10s에서 5s로 속도 상향 */
+            animation: floatOrb 5s ease-in-out infinite alternate; 
         }
-        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.4); top: -100px; left: -100px; }
-        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.3); bottom: -150px; right: -100px; animation-delay: -5s; }
-        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.4); top: 40%; left: 30%; animation-duration: 15s; }
+        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.45); top: -100px; left: -100px; }
+        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.35); bottom: -150px; right: -100px; animation-delay: -2.5s; }
+        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.45); top: 40%; left: 30%; animation-duration: 7s; }
 
         @keyframes floatOrb {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
+            100% { transform: translate(50px, 50px) scale(1.15); }
         }
 
         .container {
@@ -50,53 +49,55 @@
             z-index: 1;
         }
 
-        /* 초투명 리퀴드 글래스 카드 */
+        /* 사용자 맞춤형 리퀴드 글래스 카드 */
         .glass-card {
-            /* 투명도를 0.08로 극단적으로 낮춤 */
-            background: rgba(255, 255, 255, 0.08); 
+            /* 1. 투명도 0.25 적용 */
+            background: rgba(255, 255, 255, 0.25); 
+            
             border-radius: 24px;
             padding: 45px;
-            /* 투명한 대신 블러를 매우 강하게 */
-            backdrop-filter: blur(24px) saturate(180%); 
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
             
-            /* 빛이 맺히는 느낌의 테두리 (위와 왼쪽만 밝게) */
-            border-top: 1.5px solid rgba(255, 255, 255, 0.7);
-            border-left: 1.5px solid rgba(255, 255, 255, 0.6);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* 2. 블러 강도 5 적용 */
+            backdrop-filter: blur(5px) saturate(140%); 
+            -webkit-backdrop-filter: blur(5px) saturate(140%);
             
-            /* 그림자를 넓고 은은하게 퍼뜨려 떠있는 느낌 강조 */
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            
+            /* 3. 투명도와 블러에 맞춘 적절한 그림자 세기 조절 */
+            /* 외부 그림자는 가볍고 선명하게, 내부 반사는 부드럽게 */
             box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.05),
-                inset 0 4px 10px rgba(255, 255, 255, 0.3);
+                0 15px 35px rgba(0, 0, 0, 0.08), 
+                inset 0 4px 10px rgba(255, 255, 255, 0.4);
             
-            animation: floatCard 6s ease-in-out infinite alternate;
+            /* 떠다니는 애니메이션도 조금 더 속도감 있게 */
+            animation: floatCard 4s ease-in-out infinite alternate;
         }
 
-        /* 카드별 둥둥 떠다니는 애니메이션 딜레이 */
-        .glass-card:nth-child(2) { animation-delay: -2s; }
-        .glass-card:nth-child(3) { animation-delay: -4s; }
-        .glass-card:nth-child(4) { animation-delay: -1s; }
+        .glass-card:nth-child(2) { animation-delay: -1.5s; }
+        .glass-card:nth-child(3) { animation-delay: -3s; }
+        .glass-card:nth-child(4) { animation-delay: -0.5s; }
 
         @keyframes floatCard {
             0% { transform: translateY(0px); }
-            100% { transform: translateY(-8px); }
+            100% { transform: translateY(-6px); }
         }
 
-        /* 내부 움푹 파인 요소 (경력, 프로젝트 등에 사용) */
+        /* 내부 움푹 파인 요소 */
         .glass-inset {
-            background: rgba(0, 0, 0, 0.02);
+            background: rgba(0, 0, 0, 0.03);
             border-radius: 16px;
             padding: 25px;
             margin-top: 20px;
             box-shadow: 
-                inset 0 4px 8px rgba(0, 0, 0, 0.04),
-                0 2px 4px rgba(255, 255, 255, 0.5);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+                inset 0 4px 8px rgba(0, 0, 0, 0.05),
+                0 2px 4px rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
         }
 
-        /* 투명 알약 뱃지 (기술 스택) */
+        /* 투명 알약 뱃지 */
         .badge-container {
             display: flex;
             flex-wrap: wrap;
@@ -105,30 +106,30 @@
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.3);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.9rem;
             font-weight: 600;
             color: #475569;
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.8);
-            border-left: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.9);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
             transition: all 0.3s ease;
             cursor: default;
         }
 
         .badge:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.5);
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
 
-        /* 영롱한 젤리 버튼 */
+        /* 젤리 버튼 */
         .btn-jelly {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.8));
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.9), rgba(0, 242, 254, 0.9));
             color: white;
             text-decoration: none;
             padding: 14px 32px;
@@ -136,10 +137,10 @@
             font-weight: 700;
             font-size: 1rem;
             margin-top: 20px;
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 
-                0 10px 20px rgba(0, 242, 254, 0.2),
+                0 10px 20px rgba(0, 242, 254, 0.25),
                 inset 0 -3px 5px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -147,7 +148,7 @@
         .btn-jelly:hover {
             transform: translateY(-3px);
             box-shadow: 
-                0 15px 25px rgba(0, 242, 254, 0.3),
+                0 15px 25px rgba(0, 242, 254, 0.35),
                 inset 0 -3px 5px rgba(0, 0, 0, 0.1);
         }
 
@@ -165,7 +166,7 @@
         hr {
             border: none;
             height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 50%, rgba(255,255,255,0) 100%);
             margin: 25px 0;
         }
     </style>
@@ -179,7 +180,7 @@
     <div class="container">
         
         <header class="glass-card">
-            <h1>임성은</h1>
+            <h1>홍길동</h1>
             <div class="role">Backend & Full-Stack Developer</div>
             <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다. 복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
             <a href="https://github.com/" target="_blank" class="btn-jelly">GitHub 방문하기</a>
