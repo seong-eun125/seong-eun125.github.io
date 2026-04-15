@@ -3,20 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리퀴드 글래스 이력서</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>초투명 리퀴드 글래스 이력서</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 기본 설정 및 배경 (매우 연한 회파란색이 베이스가 되어야 유리가 돋보입니다) */
-        :root {
-            --bg-color: #e2e8f0;
-            --glass-bg: rgba(255, 255, 255, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.7);
-            --shadow-dark: rgba(148, 163, 184, 0.4);
-            --shadow-light: rgba(255, 255, 255, 0.9);
-            --text-main: #334155;
-            --text-sub: #64748b;
-        }
-
+        /* 기본 설정 */
         * {
             margin: 0;
             padding: 0;
@@ -24,62 +14,86 @@
             font-family: 'Pretendard', sans-serif;
         }
 
+        /* 화려하지만 부드러운 애니메이션 배경 (유리 효과를 극대화하는 핵심) */
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: #f4f7f6;
+            color: #1d1d1f;
             min-height: 100vh;
-            padding: 50px 20px;
-            overflow-x: hidden;
+            padding: 60px 20px;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* 배경에 은은하게 퍼지는 색상 빛 번짐 (유리 굴절 효과 극대화) */
-        .color-blob {
+        /* 움직이는 오로라 빛 번짐 (이게 있어야 유리가 예뻐 보입니다) */
+        .orb {
             position: fixed;
             border-radius: 50%;
             filter: blur(80px);
             z-index: -1;
-            opacity: 0.5;
+            animation: floatOrb 10s ease-in-out infinite alternate;
         }
-        .blob-1 { width: 400px; height: 400px; background: #4facfe; top: -100px; left: -100px; }
-        .blob-2 { width: 500px; height: 500px; background: #a18cd1; bottom: -100px; right: -100px; opacity: 0.3; }
+        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.4); top: -100px; left: -100px; }
+        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.3); bottom: -150px; right: -100px; animation-delay: -5s; }
+        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.4); top: 40%; left: 30%; animation-duration: 15s; }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
 
         .container {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 35px;
+            z-index: 1;
         }
 
-        /* 리퀴드 글래스 패널 (두꺼운 유리 느낌) */
-        .liquid-panel {
-            background: var(--glass-bg);
-            border-radius: 30px;
-            padding: 40px;
-            border: 1.5px solid var(--glass-border);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+        /* 초투명 리퀴드 글래스 카드 */
+        .glass-card {
+            /* 투명도를 0.08로 극단적으로 낮춤 */
+            background: rgba(255, 255, 255, 0.08); 
+            border-radius: 24px;
+            padding: 45px;
+            /* 투명한 대신 블러를 매우 강하게 */
+            backdrop-filter: blur(24px) saturate(180%); 
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             
-            /* 핵심: 외부 음영 + 상단/좌측의 강한 흰색 하이라이트(Inset) */
+            /* 빛이 맺히는 느낌의 테두리 (위와 왼쪽만 밝게) */
+            border-top: 1.5px solid rgba(255, 255, 255, 0.7);
+            border-left: 1.5px solid rgba(255, 255, 255, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            
+            /* 그림자를 넓고 은은하게 퍼뜨려 떠있는 느낌 강조 */
             box-shadow: 
-                15px 15px 35px var(--shadow-dark),
-                -15px -15px 35px var(--shadow-light),
-                inset 0 4px 5px rgba(255, 255, 255, 0.9),
-                inset 0 -2px 5px rgba(0, 0, 0, 0.05);
+                0 20px 40px rgba(0, 0, 0, 0.05),
+                inset 0 4px 10px rgba(255, 255, 255, 0.3);
+            
+            animation: floatCard 6s ease-in-out infinite alternate;
         }
 
-        /* 움푹 파인 유리 (내부 음영 패널) - 포트폴리오 설명란 등에 사용 */
-        .liquid-inset {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
+        /* 카드별 둥둥 떠다니는 애니메이션 딜레이 */
+        .glass-card:nth-child(2) { animation-delay: -2s; }
+        .glass-card:nth-child(3) { animation-delay: -4s; }
+        .glass-card:nth-child(4) { animation-delay: -1s; }
+
+        @keyframes floatCard {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* 내부 움푹 파인 요소 (경력, 프로젝트 등에 사용) */
+        .glass-inset {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 16px;
             padding: 25px;
             margin-top: 20px;
-            border: 1px solid transparent;
             box-shadow: 
-                inset 6px 6px 12px rgba(148, 163, 184, 0.3),
-                inset -6px -6px 12px rgba(255, 255, 255, 0.8),
+                inset 0 4px 8px rgba(0, 0, 0, 0.04),
                 0 2px 4px rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
         }
 
         /* 투명 알약 뱃지 (기술 스택) */
@@ -87,129 +101,134 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
-        .liquid-badge {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            border: 1px solid var(--glass-border);
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
             color: #475569;
-            box-shadow: 
-                4px 4px 10px rgba(148, 163, 184, 0.2),
-                -4px -4px 10px rgba(255, 255, 255, 0.8),
-                inset 0 2px 4px rgba(255, 255, 255, 1);
-            transition: transform 0.2s;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            cursor: default;
         }
 
-        .liquid-badge:hover {
-            transform: translateY(-2px);
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
         }
 
-        /* 파란색 젤리 버튼 (이미지의 Create workspace 느낌) */
-        .liquid-btn-blue {
+        /* 영롱한 젤리 버튼 */
+        .btn-jelly {
             display: inline-block;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.8));
+            color: white;
             text-decoration: none;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 1rem;
-            margin-top: 15px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 
-                0 8px 20px rgba(0, 242, 254, 0.4),
-                inset 0 4px 6px rgba(255, 255, 255, 0.6),
-                inset 0 -4px 6px rgba(0, 0, 0, 0.15);
-            transition: all 0.2s ease;
+                0 10px 20px rgba(0, 242, 254, 0.2),
+                inset 0 -3px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .liquid-btn-blue:hover {
-            transform: translateY(-2px);
+        .btn-jelly:hover {
+            transform: translateY(-3px);
             box-shadow: 
-                0 12px 25px rgba(0, 242, 254, 0.5),
-                inset 0 4px 6px rgba(255, 255, 255, 0.6),
-                inset 0 -4px 6px rgba(0, 0, 0, 0.15);
+                0 15px 25px rgba(0, 242, 254, 0.3),
+                inset 0 -3px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* 타이포그래피 */
-        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 5px; color: #1e293b; }
-        h2 { font-size: 1.6rem; font-weight: 700; color: #334155; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;}
-        h3 { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
-        p, li { line-height: 1.7; color: var(--text-sub); }
-        ul { padding-left: 20px; margin-top: 10px; margin-bottom: 15px; }
-        li { margin-bottom: 6px; }
-        .period { font-size: 0.9rem; color: #94a3b8; font-weight: 500; margin-bottom: 15px; display: inline-block;}
+        h1 { font-size: 2.8rem; font-weight: 700; color: #0f172a; margin-bottom: 5px; letter-spacing: -1px; }
+        h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+        h3 { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 5px; }
+        p { font-size: 1.05rem; line-height: 1.7; color: #475569; }
+        ul { padding-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #475569; }
         
+        .role { font-size: 1.2rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
+        .period { font-size: 0.9rem; color: #94a3b8; font-weight: 500; display: block; margin-bottom: 12px; }
+
         hr {
             border: none;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.3), transparent);
-            margin: 20px 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%);
+            margin: 25px 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="color-blob blob-1"></div>
-    <div class="color-blob blob-2"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
     <div class="container">
         
-        <header class="liquid-panel">
-            <h1>홍길동</h1>
-            <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 500;">Backend & Full-Stack Developer</p>
-            <hr>
-            <p>안정적인 데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다. 복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화와 효율적인 데이터베이스 관리를 추구합니다.</p>
-            <a href="https://github.com/" target="_blank" class="liquid-btn-blue">GitHub 바로가기</a>
+        <header class="glass-card">
+            <h1>임성은</h1>
+            <div class="role">Backend & Full-Stack Developer</div>
+            <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다. 복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
+            <a href="https://github.com/" target="_blank" class="btn-jelly">GitHub 방문하기</a>
         </header>
 
-        <section class="liquid-panel">
+        <section class="glass-card">
             <h2>기술 스택</h2>
             <div class="badge-container">
-                <span class="liquid-badge">Python</span>
-                <span class="liquid-badge">FastAPI</span>
-                <span class="liquid-badge">C#</span>
-                <span class="liquid-badge">MySQL</span>
-                <span class="liquid-badge">MariaDB</span>
-                <span class="liquid-badge">Git & GitHub</span>
+                <span class="badge">Python</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">C#</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">MariaDB</span>
+                <span class="badge">Git / GitHub</span>
             </div>
         </section>
 
-        <section class="liquid-panel">
+        <section class="glass-card">
             <h2>포트폴리오</h2>
             
-            <div class="liquid-inset">
+            <div class="glass-inset">
                 <h3>UPM (Universal PC Master) - Global Server</h3>
                 <span class="period">2024.01 - 진행 중</span>
-                <p>PC 하드웨어 상태를 실시간으로 모니터링하고 제어하기 위한 중앙 제어실(Control Room) 형태의 시스템입니다.</p>
+                <p>PC 하드웨어 상태를 실시간으로 모니터링하고 제어하기 위한 중앙 제어실 형태의 시스템입니다.</p>
+                <hr>
                 <ul>
-                    <li><strong>에이전트 개발:</strong> C#을 활용하여 CPU 사용량, RAM 점유율, GPU 온도 등 시스템 텔레메트리 데이터를 실시간으로 수집하는 데스크톱 에이전트 구현.</li>
-                    <li><strong>백엔드 파이프라인:</strong> Python과 FastAPI를 이용해 비동기 기반의 RESTful API 서버 구축 (POST /api/v1/status 연동 완료).</li>
-                    <li><strong>데이터 영구 저장:</strong> MySQL 및 MariaDB를 연동하여 시계열로 발생하는 시스템 상태 데이터를 효율적으로 적재 및 관리. 권한 스크립트 최적화 적용.</li>
+                    <li>C#을 활용하여 CPU/RAM/GPU 등 시스템 텔레메트리 데이터를 실시간 수집하는 데스크톱 에이전트 구현</li>
+                    <li>Python 및 FastAPI를 이용해 비동기 기반의 RESTful API 서버 구축 (안전한 데이터 파이프라인 형성)</li>
+                    <li>MySQL 및 MariaDB를 연동하여 시계열 시스템 상태 데이터 영구 저장 및 권한 최적화</li>
                 </ul>
             </div>
         </section>
 
-        <section class="liquid-panel">
-            <h2>경력 및 학력</h2>
-            <div class="liquid-inset">
-                <h3>ㅇㅇ대학교 컴퓨터공학과</h3>
-                <span class="period">2018.03 - 2024.02</span>
-                <ul>
-                    <li>자료구조, 데이터베이스 시스템, 운영체제 등 컴퓨터 공학 기초 심화 이수</li>
-                </ul>
+        <section class="glass-card" style="display: flex; gap: 40px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px;">
+                <h2>학력</h2>
+                <div class="glass-inset" style="padding: 20px;">
+                    <h3>ㅇㅇ대학교 컴퓨터공학과</h3>
+                    <span class="period">2018.03 - 2024.02</span>
+                    <p style="font-size: 0.95rem;">자료구조, 데이터베이스 시스템, 운영체제 등 컴퓨터 공학 기초 심화 이수</p>
+                </div>
             </div>
-        </section>
 
-        <section class="liquid-panel">
-            <h2>수상 및 자격</h2>
-            <div class="badge-container" style="margin-top: 0;">
-                <span class="liquid-badge">정보처리기사 (2023)</span>
-                <span class="liquid-badge">SQLD 개발자 (2022)</span>
+            <div style="flex: 1; min-width: 250px;">
+                <h2>자격 및 수상</h2>
+                <div class="badge-container" style="margin-top: 15px;">
+                    <span class="badge" style="width: 100%; text-align: center;">정보처리기사 (2023)</span>
+                    <span class="badge" style="width: 100%; text-align: center;">SQLD 개발자 (2022)</span>
+                </div>
             </div>
         </section>
 
