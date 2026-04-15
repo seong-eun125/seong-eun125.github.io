@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>민초 코어 리퀴드 글래스 이력서</title>
+    <title>경쾌한 리퀴드 글래스 이력서</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,29 +13,27 @@
             font-family: 'Pretendard', sans-serif;
         }
 
-        /* 베이스: 아주 연한 민트 크림색 */
         body {
-            background-color: #F2FBF7; 
-            color: #4A332A; /* 기본 텍스트는 부드러운 코코아 브라운 */
+            background-color: #f4f7f6;
+            color: #1d1d1f;
             min-height: 100vh;
+            /* padding: 60px 20px; */ /* 제거: 전체 화면 레이아웃을 위해 */
             position: relative;
             overflow-x: hidden;
         }
 
-        /* 민트 & 초코 오로라 배경 */
+        /* 오로라 배경 (애니메이션 속도 증가 반영) */
         .orb {
             position: fixed;
             border-radius: 50%;
             filter: blur(70px);
             z-index: -1;
+            /* 기존 10s에서 5s로 속도 상향 */
             animation: floatOrb 5s ease-in-out infinite alternate; 
         }
-        /* 상쾌한 민트색 */
-        .orb-1 { width: 500px; height: 500px; background: rgba(46, 196, 150, 0.4); top: -100px; left: -100px; }
-        /* 진한 다크 초콜릿색 */
-        .orb-2 { width: 600px; height: 600px; background: rgba(94, 58, 43, 0.3); bottom: -150px; right: -100px; animation-delay: -2.5s; }
-        /* 부드러운 우유 민트색 */
-        .orb-3 { width: 400px; height: 400px; background: rgba(168, 230, 207, 0.5); top: 40%; left: 30%; animation-duration: 7s; }
+        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.45); top: -100px; left: -100px; }
+        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.35); bottom: -150px; right: -100px; animation-delay: -2.5s; }
+        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.45); top: 40%; left: 30%; animation-duration: 7s; }
 
         @keyframes floatOrb {
             0% { transform: translate(0, 0) scale(1); }
@@ -49,7 +47,7 @@
             flex-direction: column;
             gap: 35px;
             z-index: 1;
-            padding: 60px 20px; 
+            padding: 60px 20px; /* 컨테이너 내부로 패딩 이동 */
         }
 
         /* 소개 (Hero) 섹션: 전체 화면 */
@@ -61,19 +59,23 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.1); 
+            background: rgba(255, 255, 255, 0.1); /* 더 투명하게 */
             backdrop-filter: blur(5px) saturate(140%);
             -webkit-backdrop-filter: blur(5px) saturate(140%);
         }
 
         .hero-card {
+            /* 1. 투명도 0.25 적용 */
             background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
             padding: 45px;
             text-align: center;
+            
+            /* 3. 투명도와 블러에 맞춘 적절한 그림자 세기 조절 */
             box-shadow: 
-                0 25px 50px rgba(94, 58, 43, 0.08), /* 그림자도 살짝 초코빛으로 */
+                0 25px 50px rgba(0, 0, 0, 0.1), 
                 inset 0 4px 10px rgba(255, 255, 255, 0.5);
+            
             animation: floatHero 6s ease-in-out infinite alternate;
         }
 
@@ -82,11 +84,13 @@
             100% { transform: translateY(-10px); }
         }
 
-        /* 나머지 글래스 카드 */
+        /* 나머지 카드 */
         .glass-card {
             background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
             padding: 45px;
+            
+            /* 2. 블러 강도 5 적용 */
             backdrop-filter: blur(5px) saturate(140%); 
             -webkit-backdrop-filter: blur(5px) saturate(140%);
             
@@ -96,8 +100,9 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             
             box-shadow: 
-                0 15px 35px rgba(94, 58, 43, 0.06), 
+                0 15px 35px rgba(0, 0, 0, 0.08), 
                 inset 0 4px 10px rgba(255, 255, 255, 0.4);
+            
             animation: floatCard 4s ease-in-out infinite alternate;
         }
 
@@ -112,12 +117,12 @@
 
         /* 내부 움푹 파인 요소 */
         .glass-inset {
-            background: rgba(94, 58, 43, 0.03); /* 초코 한 방울 추가 */
+            background: rgba(0, 0, 0, 0.03);
             border-radius: 16px;
             padding: 25px;
             margin-top: 20px;
             box-shadow: 
-                inset 0 4px 8px rgba(94, 58, 43, 0.05),
+                inset 0 4px 8px rgba(0, 0, 0, 0.05),
                 0 2px 4px rgba(255, 255, 255, 0.6);
             border-bottom: 1px solid rgba(255, 255, 255, 0.7);
         }
@@ -131,31 +136,30 @@
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.3);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #4A332A; /* 코코아색 텍스트 */
+            color: #475569;
             backdrop-filter: blur(5px);
             border-top: 1px solid rgba(255, 255, 255, 0.9);
             border-left: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 10px rgba(94, 58, 43, 0.04);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
             transition: all 0.3s ease;
             cursor: default;
         }
 
         .badge:hover {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.5);
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 15px rgba(94, 58, 43, 0.08);
-            color: #1A936F; /* 호버 시 민트색으로 변화 */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
 
-        /* 민트 시럽 젤리 버튼 */
+        /* 젤리 버튼 */
         .btn-jelly {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(62, 180, 137, 0.9), rgba(26, 147, 111, 0.9)); /* 민트 그라데이션 */
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.9), rgba(0, 242, 254, 0.9));
             color: white;
             text-decoration: none;
             padding: 14px 32px;
@@ -166,7 +170,7 @@
             backdrop-filter: blur(5px);
             border-top: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 
-                0 10px 20px rgba(26, 147, 111, 0.25),
+                0 10px 20px rgba(0, 242, 254, 0.25),
                 inset 0 -3px 5px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -174,32 +178,32 @@
         .btn-jelly:hover {
             transform: translateY(-3px);
             box-shadow: 
-                0 15px 25px rgba(26, 147, 111, 0.35),
+                0 15px 25px rgba(0, 242, 254, 0.35),
                 inset 0 -3px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* 타이포그래피 (다크 초코 & 민트) */
-        .hero-name { font-size: 4rem; font-weight: 700; color: #3D2314; margin-bottom: 10px; letter-spacing: -2px; }
-        .hero-title { font-size: 2rem; font-weight: 600; color: #1A936F; margin-bottom: 30px; } /* 포인트 민트 */
-        .hero-contact { font-size: 1.1rem; color: #6E4B39; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        /* 타이포그래피 */
+        .hero-name { font-size: 4rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero-title { font-size: 2rem; font-weight: 600; color: #3b82f6; margin-bottom: 30px; }
+        .hero-contact { font-size: 1.1rem; color: #64748b; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
         .hero-contact a { color: inherit; text-decoration: none; }
-        .hero-contact a:hover { color: #1A936F; text-decoration: underline; }
-        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #6E4B39;}
+        .hero-contact a:hover { color: #3b82f6; text-decoration: underline; }
+        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #64748b;}
 
-        h1 { font-size: 2.8rem; font-weight: 700; color: #3D2314; margin-bottom: 5px; letter-spacing: -1px; }
-        h2 { font-size: 1.5rem; font-weight: 700; color: #4A2E1B; margin-bottom: 5px; }
-        h3 { font-size: 1.2rem; font-weight: 600; color: #5C4033; margin-bottom: 5px; }
-        p { font-size: 1.05rem; line-height: 1.7; color: #6E4B39; }
+        h1 { font-size: 2.8rem; font-weight: 700; color: #0f172a; margin-bottom: 5px; letter-spacing: -1px; }
+        h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+        h3 { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 5px; }
+        p { font-size: 1.05rem; line-height: 1.7; color: #475569; }
         ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #6E4B39; }
+        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #475569; }
         
-        .role { font-size: 1.2rem; font-weight: 600; color: #1A936F; margin-bottom: 20px; } /* 포인트 민트 */
-        .period { font-size: 0.9rem; color: #A68A7E; font-weight: 500; display: block; margin-bottom: 12px; }
+        .role { font-size: 1.2rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
+        .period { font-size: 0.9rem; color: #94a3b8; font-weight: 500; display: block; margin-bottom: 12px; }
 
         hr {
             border: none;
             height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(94, 58, 43, 0.15) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 50%, rgba(255,255,255,0) 100%);
             margin: 25px 0;
         }
     </style>
@@ -212,20 +216,20 @@
 
     <section class="hero-section">
         <div class="hero-card">
-            <h1 class="hero-name">한준탁</h1>
+            <h1 class="hero-name">임성은</h1>
             <div class="hero-title">개발자</div>
             <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다.</p>
             <div class="hero-contact">
                 <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"></path></svg>
-                <a href="mailto:juntak46059826@gmail.com">juntak46059826@gmail.com</a>
+                <a href="mailto:tjddms7372@icloud.com">tjddms7372@icloud.com</a>
             </div>
             <div class="hero-contact">
                 <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg>
-                <a href="https://github.com/Juntak0131" target="_blank">github.com/Juntak0131</a>
+                <a href="https://github.com/seong-eun125" target="_blank">github.com/seong-eun125</a>
             </div>
             <p>복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
             <a href="#github" class="btn-jelly">GitHub 방문하기</a>
-        </div>
+        </header>
     </section>
 
     <div class="container">
