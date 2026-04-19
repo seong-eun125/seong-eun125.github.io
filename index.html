@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임성은 이력서</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Pretendard', sans-serif;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임성은 | 리퀴드 글래스 이력서</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 💡 추가된 부분: 부드러운 스크롤 및 상단 바 여백 확보 💡 */
+        html {
+            scroll-behavior: smooth; /* 클릭 시 스르륵 부드럽게 이동 */
+            scroll-padding-top: 100px; /* 고정된 상단 내비바에 내용이 가려지지 않도록 여백 확보 */
+        }
 
-        body {
-            background-color: #f4f7f6;
-            color: #1d1d1f;
-            min-height: 100vh;
-            padding-top: 80px; /* 💡 네비게이션 바 높이만큼 상단 여백 추가 */
-            position: relative;
-            overflow-x: hidden;
-        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', sans-serif;
+        }
 
-        /* 오로라 배경 */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(70px);
-            z-index: -1;
-            animation: floatOrb 5s ease-in-out infinite alternate; 
-        }
-        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.45); top: -100px; left: -100px; }
-        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.35); bottom: -150px; right: -100px; animation-delay: -2.5s; }
-        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.45); top: 40%; left: 30%; animation-duration: 7s; }
+        body {
+            background-color: #f4f7f6;
+            color: #1d1d1f;
+            min-height: 100vh;
+            padding-top: 80px; 
+            position: relative;
+            overflow-x: hidden;
+        }
 
-        @keyframes floatOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.15); }
-        }
+        /* 오로라 배경 */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            z-index: -1;
+            animation: floatOrb 5s ease-in-out infinite alternate; 
+        }
+        .orb-1 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.45); top: -100px; left: -100px; }
+        .orb-2 { width: 600px; height: 600px; background: rgba(255, 154, 158, 0.35); bottom: -150px; right: -100px; animation-delay: -2.5s; }
+        .orb-3 { width: 400px; height: 400px; background: rgba(161, 196, 253, 0.45); top: 40%; left: 30%; animation-duration: 7s; }
 
-        /* 컨테이너 가로 폭 확장 */
-        .container {
-            max-width: 1200px; /* 💡 기존 800px에서 1200px로 대폭 확장 */
-            width: 90%; /* 화면 크기에 따라 유연하게 조절 */
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-            z-index: 1;
-            padding: 60px 0; /* 컨테이너 내부로 패딩 이동 */
-        }
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.15); }
+        }
 
-        /* 💡 새로운 상단 내비게이션 바 */
+        /* 컨테이너 가로 폭 확장 */
+        .container {
+            max-width: 1200px; 
+            width: 90%; 
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            z-index: 1;
+            padding: 60px 0; 
+        }
+
+        /* 상단 내비게이션 바 */
         nav {
             position: fixed;
             top: 0;
@@ -62,18 +68,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 40px;
-            background: rgba(255, 255, 255, 0.1); /* 투명한 흰색 배경 */
-            backdrop-filter: blur(10px) saturate(140%); /* 배경 흐림 효과 */
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px) saturate(140%); 
             -webkit-backdrop-filter: blur(10px) saturate(140%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             z-index: 100;
         }
 
         .nav-logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #3b82f6; /* 포인트 민트 색상 */
+            color: #3b82f6; 
             text-decoration: none;
             letter-spacing: -1px;
         }
@@ -93,162 +99,153 @@
         }
 
         .nav-menu-item a:hover {
-            color: #3b82f6; /* 포인트 민트 색상 */
+            color: #3b82f6; 
         }
 
-        /* 소개 (Hero) 섹션 */
-        .hero-card {
-            background: rgba(255, 255, 255, 0.25); 
-            border-radius: 24px;
-            padding: 45px;
-            text-align: center;
-            
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.1), 
-                inset 0 4px 10px rgba(255, 255, 255, 0.5);
-            
-            animation: floatHero 6s ease-in-out infinite alternate;
-        }
+        /* 소개 (Hero) 섹션 */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.25); 
+            border-radius: 24px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.1), 
+                inset 0 4px 10px rgba(255, 255, 255, 0.5);
+            animation: floatHero 6s ease-in-out infinite alternate;
+        }
 
-        @keyframes floatHero {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-10px); }
-        }
+        @keyframes floatHero {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
 
-        /* 나머지 카드 */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.25); 
-            border-radius: 24px;
-            padding: 45px;
-            
-            backdrop-filter: blur(5px) saturate(140%); 
-            -webkit-backdrop-filter: blur(5px) saturate(140%);
-            
-            border-top: 1px solid rgba(255, 255, 255, 0.8);
-            border-left: 1px solid rgba(255, 255, 255, 0.6);
-            border-right: 1px solid rgba(255, 255, 255, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.08), 
-                inset 0 4px 10px rgba(255, 255, 255, 0.4);
-            
-            animation: floatCard 4s ease-in-out infinite alternate;
-        }
+        /* 나머지 글래스 카드 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25); 
+            border-radius: 24px;
+            padding: 45px;
+            backdrop-filter: blur(5px) saturate(140%); 
+            -webkit-backdrop-filter: blur(5px) saturate(140%);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.08), 
+                inset 0 4px 10px rgba(255, 255, 255, 0.4);
+            animation: floatCard 4s ease-in-out infinite alternate;
+        }
 
-        .glass-card:nth-child(2) { animation-delay: -1.5s; }
-        .glass-card:nth-child(3) { animation-delay: -3s; }
-        .glass-card:nth-child(4) { animation-delay: -0.5s; }
+        .glass-card:nth-child(2) { animation-delay: -1.5s; }
+        .glass-card:nth-child(3) { animation-delay: -3s; }
+        .glass-card:nth-child(4) { animation-delay: -0.5s; }
 
-        @keyframes floatCard {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-6px); }
-        }
+        @keyframes floatCard {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-6px); }
+        }
 
-        .glass-inset {
-            background: rgba(0, 0, 0, 0.03);
-            border-radius: 16px;
-            padding: 25px;
-            margin-top: 20px;
-            box-shadow: 
-                inset 0 4px 8px rgba(0, 0, 0, 0.05),
-                0 2px 4px rgba(255, 255, 255, 0.6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-        }
+        .glass-inset {
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 
+                inset 0 4px 8px rgba(0, 0, 0, 0.05),
+                0 2px 4px rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+        }
 
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #475569;
-            backdrop-filter: blur(5px);
-            border-top: 1px solid rgba(255, 255, 255, 0.9);
-            border-left: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
+        .badge {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #475569;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.9);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
 
-        .badge:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-        }
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
 
-        .btn-transparent-jelly {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            color: #3b82f6;
-            text-decoration: none;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-top: 20px;
-            
-            backdrop-filter: blur(12px) saturate(150%);
-            -webkit-backdrop-filter: blur(12px) saturate(150%);
-            
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            border-right: 1px solid rgba(255, 255, 255, 0.3);
-            
-            box-shadow: 
-                0 10px 20px rgba(0, 195, 255, 0.15), 
-                inset 0 4px 5px rgba(255, 255, 255, 0.8), 
-                inset 0 -4px 5px rgba(0, 0, 0, 0.02);
-                
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+        /* 투명 젤리 버튼 */
+        .btn-transparent-jelly {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: #3b82f6;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 20px;
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 10px 20px rgba(0, 195, 255, 0.15), 
+                inset 0 4px 5px rgba(255, 255, 255, 0.8), 
+                inset 0 -4px 5px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-        .btn-transparent-jelly:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.3);
-            color: #0f172a;
-            box-shadow: 
-                0 15px 25px rgba(0, 195, 255, 0.25),
-                inset 0 4px 5px rgba(255, 255, 255, 0.9),
-                inset 0 -4px 5px rgba(0, 0, 0, 0.02);
-        }
+        .btn-transparent-jelly:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.3);
+            color: #0f172a;
+            box-shadow: 
+                0 15px 25px rgba(0, 195, 255, 0.25),
+                inset 0 4px 5px rgba(255, 255, 255, 0.9),
+                inset 0 -4px 5px rgba(0, 0, 0, 0.02);
+        }
 
-        /* 타이포그래피 */
-        .hero-name { font-size: 4rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; letter-spacing: -2px; }
-        .hero-title { font-size: 2rem; font-weight: 600; color: #3b82f6; margin-bottom: 30px; }
-        .hero-contact { font-size: 1.1rem; color: #64748b; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
-        .hero-contact a { color: inherit; text-decoration: none; }
-        .hero-contact a:hover { color: #3b82f6; text-decoration: underline; }
-        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #64748b;}
+        /* 타이포그래피 */
+        .hero-name { font-size: 4rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; letter-spacing: -2px; }
+        .hero-title { font-size: 2rem; font-weight: 600; color: #3b82f6; margin-bottom: 30px; }
+        .hero-contact { font-size: 1.1rem; color: #64748b; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .hero-contact a { color: inherit; text-decoration: none; }
+        .hero-contact a:hover { color: #3b82f6; text-decoration: underline; }
+        .hero-contact svg { width: 1.2rem; height: 1.2rem; fill: #64748b;}
 
-        h1 { font-size: 2.8rem; font-weight: 700; color: #0f172a; margin-bottom: 5px; letter-spacing: -1px; }
-        h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
-        h3 { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 5px; }
-        p { font-size: 1.05rem; line-height: 1.7; color: #475569; }
-        ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #475569; }
-        
-        .role { font-size: 1.2rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
-        .period { font-size: 0.9rem; color: #94a3b8; font-weight: 500; display: block; margin-bottom: 12px; }
+        h1 { font-size: 2.8rem; font-weight: 700; color: #0f172a; margin-bottom: 5px; letter-spacing: -1px; }
+        h2 { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+        h3 { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 5px; }
+        p { font-size: 1.05rem; line-height: 1.7; color: #475569; }
+        ul { padding-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.6; color: #475569; }
+        
+        .role { font-size: 1.2rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
+        .period { font-size: 0.9rem; color: #94a3b8; font-weight: 500; display: block; margin-bottom: 12px; }
 
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 50%, rgba(255,255,255,0) 100%);
-            margin: 25px 0;
-        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 50%, rgba(255,255,255,0) 100%);
+            margin: 25px 0;
+        }
 
-        /* 💡 기술 스택 카드 스타일 추가 (image_5.png 기반) */
+        /* 기술 스택 카드 */
         .skill-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2열 격자 */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 25px;
             margin-top: 25px;
         }
@@ -271,7 +268,7 @@
 
         .skill-icon {
             font-size: 2rem;
-            color: #3b82f6; /* 포인트 민트 색상 */
+            color: #3b82f6; 
         }
 
         .skill-content h4 {
@@ -286,48 +283,46 @@
             color: #475569;
             line-height: 1.6;
         }
-    </style>
+    </style>
 </head>
 <body>
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
     <nav>
         <a href="#" class="nav-logo">Resume</a>
         <ul class="nav-menu">
             <li class="nav-menu-item"><a href="#intro">소개</a></li>
             <li class="nav-menu-item"><a href="#skills">기술 스택</a></li>
-            <li class="nav-menu-item"><a href="#career">경력 및 학력</a></li>
             <li class="nav-menu-item"><a href="#portfolio">포트폴리오</a></li>
+            <li class="nav-menu-item"><a href="#career">경력 및 학력</a></li>
             <li class="nav-menu-item"><a href="#awards">수상 및 자격</a></li>
         </ul>
     </nav>
 
-        <section class="hero-section" id="intro">
-        <div class="hero-card">
-            <h1 class="hero-name">임성은</h1>
-            <div class="hero-title">개발자</div>
-            <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다.</p>
-            <div class="hero-contact">
-                <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"></path></svg>
-                <a href="mailto:tjddms7372@icloud.com">tjddms7372@icloud.com</a>
-            </div>
-            <div class="hero-contact">
-                <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg>
-                <a href="https://github.com/seong-eun125" target="_blank">github.com/seong-eun125</a>
-            </div>
-            <p>복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
-            <a href="https://github.com/seong-eun125" class="btn-transparent-jelly" target="_blank">GitHub 방문하기</a>
-        </div>
-    </section>
+    <div class="container">
+        
+        <section class="hero-card" id="intro">
+            <h1 class="hero-name">임성은</h1>
+            <div class="hero-title">개발자</div>
+            <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다.</p>
+            <div class="hero-contact">
+                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"></path></svg>
+                <a href="mailto:tjddms7372@icloud.com">tjddms7372@icloud.com</a>
+            </div>
+            <div class="hero-contact">
+                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg>
+                <a href="https://github.com/seong-eun125" target="_blank">github.com/seong-eun125</a>
+            </div>
+            <p style="margin-top: 15px;">복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
+            <a href="https://github.com/seong-eun125" class="btn-transparent-jelly" target="_blank">GitHub 방문하기</a>
+        </section>
 
-    <div class="container">
-        
-                <section class="glass-card" id="skills">
-            <h2>기술 스택</h2>
-            <div class="skill-grid">
+        <section class="glass-card" id="skills">
+            <h2>기술 스택</h2>
+            <div class="skill-grid">
                 <div class="skill-card">
                     <span class="skill-icon">/&gt;</span>
                     <div class="skill-content">
@@ -357,44 +352,42 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>
 
-                <section class="glass-card" id="portfolio">
-            <h2>포트폴리오</h2>
-            
-            <div class="glass-inset">
-                <h3>UPM (Universal PC Master) - Global Server</h3>
-                <span class="period">2024.01 - 진행 중</span>
-                <p>PC 하드웨어 상태를 실시간으로 모니터링하고 제어하기 위한 중앙 제어실 형태의 시스템입니다.</p>
-                <hr>
-                <ul>
-                    <li>C#을 활용하여 CPU/RAM/GPU 등 시스템 텔레메트리 데이터를 실시간 수집하는 데스크톱 에이전트 구현</li>
-                    <li>Python 및 FastAPI를 이용해 비동기 기반의 RESTful API 서버 구축 (안전한 데이터 파이프라인 형성)</li>
-                    <li>MySQL 및 MariaDB를 연동하여 시계열 시스템 상태 데이터 영구 저장 및 권한 최적화</li>
-                </ul>
-            </div>
-        </section>
+        <section class="glass-card" id="portfolio">
+            <h2>포트폴리오</h2>
+            
+            <div class="glass-inset">
+                <h3>UPM (Universal PC Master) - Global Server</h3>
+                <span class="period">2024.01 - 진행 중</span>
+                <p>PC 하드웨어 상태를 실시간으로 모니터링하고 제어하기 위한 중앙 제어실 형태의 시스템입니다.</p>
+                <hr>
+                <ul>
+                    <li>C#을 활용하여 CPU/RAM/GPU 등 시스템 텔레메트리 데이터를 실시간 수집하는 데스크톱 에이전트 구현</li>
+                    <li>Python 및 FastAPI를 이용해 비동기 기반의 RESTful API 서버 구축 (안전한 데이터 파이프라인 형성)</li>
+                    <li>MySQL 및 MariaDB를 연동하여 시계열 시스템 상태 데이터 영구 저장 및 권한 최적화</li>
+                </ul>
+            </div>
+        </section>
 
-                <section class="glass-card" id="career" style="display: flex; gap: 40px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 250px;">
-                <h2>학력</h2>
-                <div class="glass-inset" style="padding: 20px;">
-                    <h3>동양미래대학교 컴퓨터소프트웨어학과</h3>
-                    <span class="period">2018.03 - 2024.02</span>
-                    <p style="font-size: 0.95rem;">자료구조, 데이터베이스 시스템, 운영체제 등 컴퓨터 공학 기초 심화 이수</p>
-                </div>
-            </div>
-        </section>
+        <section class="glass-card" id="career">
+            <h2>학력</h2>
+            <div class="glass-inset" style="padding: 20px;">
+                <h3>ㅇㅇ대학교 컴퓨터공학과</h3>
+                <span class="period">2018.03 - 2024.02</span>
+                <p style="font-size: 0.95rem;">자료구조, 데이터베이스 시스템, 운영체제 등 컴퓨터 공학 기초 심화 이수</p>
+            </div>
+        </section>
 
-                <section class="glass-card" id="awards">
-            <h2>자격 및 수상</h2>
-            <div class="badge-container" style="margin-top: 15px;">
-                <span class="badge" style="width: calc(50% - 6px); text-align: center;">정보처리기사 (2023)</span>
-                <span class="badge" style="width: calc(50% - 6px); text-align: center;">SQLD 개발자 (2022)</span>
-            </div>
-        </section>
+        <section class="glass-card" id="awards">
+            <h2>자격 및 수상</h2>
+            <div class="badge-container" style="margin-top: 15px;">
+                <span class="badge" style="width: calc(50% - 6px); text-align: center;">정보처리기사 (2023)</span>
+                <span class="badge" style="width: calc(50% - 6px); text-align: center;">SQLD 개발자 (2022)</span>
+            </div>
+        </section>
 
-    </div>
+    </div>
 
 </body>
 </html>
