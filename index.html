@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임성은 | 리퀴드 글래스 이력서</title>
+    <title>임성은 | 이력서</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 💡 추가된 부분: 부드러운 스크롤 및 상단 바 여백 확보 💡 */
+        /* 💡 부드러운 스크롤 및 상단 바 여백 확보 */
         html {
-            scroll-behavior: smooth; /* 클릭 시 스르륵 부드럽게 이동 */
-            scroll-padding-top: 100px; /* 고정된 상단 내비바에 내용이 가려지지 않도록 여백 확보 */
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* 클릭해서 이동할 때 네비바에 가려지지 않게 여백 추가 */
         }
 
         * {
@@ -23,12 +23,12 @@
             background-color: #f4f7f6;
             color: #1d1d1f;
             min-height: 100vh;
-            padding-top: 80px; 
+            padding-top: 80px; /* 상단 고정 네비바 높이만큼 여백 */
             position: relative;
             overflow-x: hidden;
         }
 
-        /* 오로라 배경 */
+        /* 💡 오로라 배경 (경쾌한 파스텔톤) */
         .orb {
             position: fixed;
             border-radius: 50%;
@@ -45,19 +45,7 @@
             100% { transform: translate(50px, 50px) scale(1.15); }
         }
 
-        /* 컨테이너 가로 폭 확장 */
-        .container {
-            max-width: 1200px; 
-            width: 90%; 
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-            z-index: 1;
-            padding: 60px 0; 
-        }
-
-        /* 상단 내비게이션 바 */
+        /* 💡 상단 고정 내비게이션 바 */
         nav {
             position: fixed;
             top: 0;
@@ -102,12 +90,27 @@
             color: #3b82f6; 
         }
 
-        /* 소개 (Hero) 섹션 */
+        /* 💡 소개 (Hero) 섹션: 가로 화면 꽉 차게 100% */
+        .hero-section {
+            width: 100%;
+            min-height: calc(100vh - 80px); /* 네비바 제외한 화면 전체 높이 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05); /* 전체 배경에 아주 옅은 유리 효과 */
+        }
+
         .hero-card {
             background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
-            padding: 45px;
+            padding: 60px 40px;
+            width: 100%;
+            max-width: 1000px; /* 카드가 무한정 커지는 것 방지 */
             text-align: center;
+            backdrop-filter: blur(5px) saturate(140%);
+            -webkit-backdrop-filter: blur(5px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.1), 
                 inset 0 4px 10px rgba(255, 255, 255, 0.5);
@@ -119,7 +122,19 @@
             100% { transform: translateY(-10px); }
         }
 
-        /* 나머지 글래스 카드 */
+        /* 💡 컨테이너: 나머지 섹션들을 묶어주는 영역 (1200px 제한) */
+        .container {
+            max-width: 1200px; 
+            width: 90%; 
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 60px 0 100px 0; 
+            z-index: 1;
+        }
+
+        /* 💡 나머지 글래스 카드 (기술 스택, 포트폴리오 등) */
         .glass-card {
             background: rgba(255, 255, 255, 0.25); 
             border-radius: 24px;
@@ -136,9 +151,8 @@
             animation: floatCard 4s ease-in-out infinite alternate;
         }
 
-        .glass-card:nth-child(2) { animation-delay: -1.5s; }
-        .glass-card:nth-child(3) { animation-delay: -3s; }
-        .glass-card:nth-child(4) { animation-delay: -0.5s; }
+        .glass-card:nth-child(even) { animation-delay: -1.5s; }
+        .glass-card:nth-child(odd) { animation-delay: -3s; }
 
         @keyframes floatCard {
             0% { transform: translateY(0px); }
@@ -184,7 +198,7 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
         }
 
-        /* 투명 젤리 버튼 */
+        /* 💡 투명 젤리 버튼 */
         .btn-transparent-jelly {
             display: inline-block;
             background: rgba(255, 255, 255, 0.15);
@@ -217,7 +231,7 @@
                 inset 0 -4px 5px rgba(0, 0, 0, 0.02);
         }
 
-        /* 타이포그래피 */
+        /* 💡 타이포그래피 */
         .hero-name { font-size: 4rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; letter-spacing: -2px; }
         .hero-title { font-size: 2rem; font-weight: 600; color: #3b82f6; margin-bottom: 30px; }
         .hero-contact { font-size: 1.1rem; color: #64748b; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;}
@@ -242,12 +256,20 @@
             margin: 25px 0;
         }
 
-        /* 기술 스택 카드 */
+        /* 💡 기술 스택 카드 */
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
             gap: 25px;
             margin-top: 25px;
+        }
+
+        /* 모바일 화면 대응 */
+        @media (max-width: 768px) {
+            .skill-grid { grid-template-columns: 1fr; }
+            .hero-name { font-size: 3rem; }
+            .nav-menu { gap: 15px; }
+            .nav-menu-item a { font-size: 0.9rem; }
         }
 
         .skill-card {
@@ -262,27 +284,10 @@
             transition: transform 0.3s ease;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            color: #3b82f6; 
-        }
-
-        .skill-content h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 10px;
-        }
-
-        .skill-content p {
-            font-size: 1rem;
-            color: #475569;
-            line-height: 1.6;
-        }
+        .skill-card:hover { transform: translateY(-5px); }
+        .skill-icon { font-size: 2rem; color: #3b82f6; }
+        .skill-content h4 { font-size: 1.3rem; font-weight: 600; color: #1e293b; margin-bottom: 10px; }
+        .skill-content p { font-size: 1rem; color: #475569; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -298,17 +303,16 @@
             <li class="nav-menu-item"><a href="#skills">기술 스택</a></li>
             <li class="nav-menu-item"><a href="#portfolio">포트폴리오</a></li>
             <li class="nav-menu-item"><a href="#career">경력 및 학력</a></li>
-            <li class="nav-menu-item"><a href="#awards">수상 및 자격</a></li>
+            <li class="nav-menu-item"><a href="#awards">수상/자격</a></li>
         </ul>
     </nav>
-
-    <div class="container">
-        
-        <section class="hero-card" id="intro">
+    
+    <section class="hero-section" id="intro">
+        <div class="hero-card">
             <h1 class="hero-name">임성은</h1>
             <div class="hero-title">개발자</div>
             <p>데이터 파이프라인 구축과 시스템 리소스 모니터링에 강점을 가진 개발자입니다.</p>
-            <div class="hero-contact">
+            <div class="hero-contact" style="margin-top: 15px;">
                 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"></path></svg>
                 <a href="mailto:tjddms7372@icloud.com">tjddms7372@icloud.com</a>
             </div>
@@ -317,9 +321,13 @@
                 <a href="https://github.com/seong-eun125" target="_blank">github.com/seong-eun125</a>
             </div>
             <p style="margin-top: 15px;">복잡한 시스템의 상태를 실시간으로 수집하고 제어하는 아키텍처 설계에 깊은 관심을 두고 있으며, 비동기(Async) 프로그래밍을 통한 성능 최적화 경험이 있습니다.</p>
+            
             <a href="https://github.com/seong-eun125" class="btn-transparent-jelly" target="_blank">GitHub 방문하기</a>
-        </section>
+        </div>
+    </section>
 
+    <div class="container">
+        
         <section class="glass-card" id="skills">
             <h2>기술 스택</h2>
             <div class="skill-grid">
